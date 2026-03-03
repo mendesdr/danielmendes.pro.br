@@ -11,51 +11,59 @@
     <div id="root"></div>
 
     <script>
-  // Aguarda o React carregar o formulário na tela
-  const interval = setInterval(() => {
-    const form = document.querySelector('form');
-    if (form) {
-      clearInterval(interval);
-      
-      form.onsubmit = async (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        const originalText = btn.innerHTML;
-        
-        btn.disabled = true;
-        btn.innerHTML = 'Enviando...';
-
-        const payload = {
-          name: form.querySelector('input[name="name"]').value,
-          email: form.querySelector('input[name="email"]').value,
-          company: form.querySelector('input[name="company"]').value,
-          subject: form.querySelector('input[name="subject"]').value,
-          message: form.querySelector('textarea[name="message"]').value,
-        };
-
-        try {
-          const response = await fetch('/api/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-          });
-
-          if (response.ok) {
-            alert('Mensagem enviada com sucesso!');
-            form.reset();
-          } else {
-            throw new Error();
-          }
-        } catch (err) {
-          alert('Erro ao enviar. Tente novamente ou use o WhatsApp.');
-        } finally {
-          btn.disabled = false;
-          btn.innerHTML = originalText;
+      // Função para interceptar o formulário
+      function interceptForm() {
+        const form = document.querySelector('form');
+        if (form && !form.dataset.intercepted) {
+          form.dataset.intercepted = "true";
+          
+          // Remove o onsubmit original do React
+          form.onsubmit = null;
+          
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            e.stopImmediatePropagation(); // Impede o React de executar o mailto
+    
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = 'Enviando...';
+    
+            const payload = {
+              name: form.querySelector('[name="name"]').value,
+              email: form.querySelector('[name="email"]').value,
+              company: form.querySelector('[name="company"]').value,
+              subject: form.querySelector('[name="subject"]').value,
+              message: form.querySelector('[name="message"]').value,
+            };
+    
+            try {
+              const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+              });
+    
+              if (response.ok) {
+                alert('Mensagem enviada com sucesso, Daniel!');
+                form.reset();
+              } else {
+                alert('Erro no servidor. Verifique a API Key na Vercel.');
+              }
+            } catch (err) {
+              alert('Erro de conexão. Tente novamente.');
+            } finally {
+              btn.disabled = false;
+              btn.innerHTML = originalText;
+            }
+          }, true); // O "true" aqui garante que capturamos o evento antes do React
         }
-      };
-    }
-  }, 1000);
-</script>
+      }
+    
+      // Monitora a página para quando o React renderizar o form
+      const observer = new MutationObserver(interceptForm);
+      observer.observe(document.body, { childList: true, subtree: true });
+    </script>
     
   </body>
 </html>
