@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const { name, email, subject, company, message } = req.body;
 
     // Se você não validou seu domínio no Resend, o "from" TEM QUE SER o abaixo:
-    const fromEmail = "onboarding@resend.dev"; 
+    const fromEmail = "daniel@danielmendes.pro.br"; 
     
     const data = await resend.emails.send({
       from: `Site Contato <${fromEmail}>`,
