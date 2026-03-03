@@ -11,30 +11,32 @@
     <div id="root"></div>
 
     <script>
-      // Função para interceptar o formulário
-      function interceptForm() {
+      function applyFix() {
         const form = document.querySelector('form');
-        if (form && !form.dataset.intercepted) {
-          form.dataset.intercepted = "true";
+        if (form && !form.dataset.fixed) {
+          form.dataset.fixed = "true";
           
-          // Remove o onsubmit original do React
-          form.onsubmit = null;
-          
-          form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            e.stopImmediatePropagation(); // Impede o React de executar o mailto
+          // Remove todos os eventos antigos clonando o formulário
+          const newForm = form.cloneNode(true);
+          form.parentNode.replaceChild(newForm, form);
     
-            const btn = form.querySelector('button[type="submit"]');
+          newForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+    
+            const btn = newForm.querySelector('button[type="submit"]');
+            if (!btn) return;
+    
             const originalText = btn.innerHTML;
             btn.disabled = true;
             btn.innerHTML = 'Enviando...';
     
             const payload = {
-              name: form.querySelector('[name="name"]').value,
-              email: form.querySelector('[name="email"]').value,
-              company: form.querySelector('[name="company"]').value,
-              subject: form.querySelector('[name="subject"]').value,
-              message: form.querySelector('[name="message"]').value,
+              name: newForm.querySelector('[name="name"]')?.value,
+              email: newForm.querySelector('[name="email"]')?.value,
+              company: newForm.querySelector('[name="company"]')?.value,
+              subject: newForm.querySelector('[name="subject"]')?.value,
+              message: newForm.querySelector('[name="message"]')?.value,
             };
     
             try {
@@ -46,23 +48,24 @@
     
               if (response.ok) {
                 alert('Mensagem enviada com sucesso, Daniel!');
-                form.reset();
+                newForm.reset();
               } else {
-                alert('Erro no servidor. Verifique a API Key na Vercel.');
+                const errData = await response.json();
+                alert('Erro na API: ' + (errData.error || 'Verifique os logs na Vercel'));
               }
             } catch (err) {
-              alert('Erro de conexão. Tente novamente.');
+              alert('Erro de conexão com a API. Verifique se a pasta /api subiu corretamente.');
             } finally {
               btn.disabled = false;
               btn.innerHTML = originalText;
             }
-          }, true); // O "true" aqui garante que capturamos o evento antes do React
+          });
+          console.log("Formulário interceptado com sucesso.");
         }
       }
     
-      // Monitora a página para quando o React renderizar o form
-      const observer = new MutationObserver(interceptForm);
-      observer.observe(document.body, { childList: true, subtree: true });
+      // Executa continuamente até achar o form (React demora a renderizar)
+      const timer = setInterval(applyFix, 1000);
     </script>
     
   </body>
