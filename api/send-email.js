@@ -11,13 +11,13 @@ export default async function handler(req, res) {
     const { name, email, subject, company, message } = req.body;
 
     // USAR O E-MAIL DE TESTE DO RESEND ENQUANTO NÃO VALIDA O DOMÍNIO
-    const fromEmail = "onboarding@resend.dev"; 
+    const fromEmail = "daniel@email.danielmendes.pro.br"; 
     
     const data = await resend.emails.send({
       from: `Site Contato <${fromEmail}>`,
       // IMPORTANTE: O "to" deve ser o e-mail que você usou para criar a conta no Resend!
       // Se sua conta foi criada com mendes.dr@gmail.com, coloque ele aqui:
-      to: ['mendes.dr@gmail.com'], 
+      to: ['daniel@danielmendes.pro.br'], 
       subject: `SITE: ${subject || 'Novo Contato'}`,
       html: `
         <h3>Novo contato via site danielmendes.pro.br</h3>
