@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   try {
     const data = await resend.emails.send({
       from: 'Site Daniel Mendes <onboarding@resend.dev>', // Ou seu domínio verificado no Resend
-      to: ['seu-email@exemplo.com'], // O e-mail que vai receber as notificações
+      to: ['daniel@danielmendes.pro.br'], // O e-mail que vai receber as notificações
       subject: `Novo contato: ${name}`,
       html: `<p><strong>Nome:</strong> ${name}</p>
              <p><strong>E-mail:</strong> ${email}</p>
