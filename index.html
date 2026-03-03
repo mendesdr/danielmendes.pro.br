@@ -1,6 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2D954MEL7J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'COLE_SEU_ID_AQUI');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daniel Mendes - Professor & Mentor</title>
@@ -16,57 +24,47 @@
         if (form && !form.dataset.fixed) {
           form.dataset.fixed = "true";
           
-          // Remove todos os eventos antigos clonando o formulário
-          const newForm = form.cloneNode(true);
-          form.parentNode.replaceChild(newForm, form);
-    
-          newForm.addEventListener('submit', async (e) => {
+          // Mata o evento original do React/Formspree
+          form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            e.stopPropagation();
-    
-            const btn = newForm.querySelector('button[type="submit"]');
-            if (!btn) return;
-    
+            e.stopImmediatePropagation();
+
+            const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             btn.disabled = true;
             btn.innerHTML = 'Enviando...';
-    
+
             const payload = {
-              name: newForm.querySelector('[name="name"]')?.value,
-              email: newForm.querySelector('[name="email"]')?.value,
-              company: newForm.querySelector('[name="company"]')?.value,
-              subject: newForm.querySelector('[name="subject"]')?.value,
-              message: newForm.querySelector('[name="message"]')?.value,
+              name: form.querySelector('[name="name"]')?.value,
+              email: form.querySelector('[name="email"]')?.value,
+              company: form.querySelector('[name="company"]')?.value,
+              subject: form.querySelector('[name="subject"]')?.value,
+              message: form.querySelector('[name="message"]')?.value,
             };
-    
+
             try {
               const response = await fetch('/api/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
               });
-    
+
               if (response.ok) {
-                alert('Mensagem enviada com sucesso, Daniel!');
-                newForm.reset();
+                alert('Mensagem enviada com sucesso para o Daniel!');
+                form.reset();
               } else {
-                const errData = await response.json();
-                alert('Erro na API: ' + (errData.error || 'Verifique os logs na Vercel'));
+                alert('Erro ao processar e-mail. Tente via WhatsApp no rodapé.');
               }
             } catch (err) {
-              alert('Erro de conexão com a API. Verifique se a pasta /api subiu corretamente.');
+              alert('Erro de conexão. Verifique sua internet.');
             } finally {
               btn.disabled = false;
               btn.innerHTML = originalText;
             }
-          });
-          console.log("Formulário interceptado com sucesso.");
+          }, true); 
         }
       }
-    
-      // Executa continuamente até achar o form (React demora a renderizar)
-      const timer = setInterval(applyFix, 1000);
+      setInterval(applyFix, 1000);
     </script>
-    
   </body>
 </html>
