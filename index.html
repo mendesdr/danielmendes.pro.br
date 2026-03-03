@@ -9,5 +9,53 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <script>
+  // Aguarda o React carregar o formulário na tela
+  const interval = setInterval(() => {
+    const form = document.querySelector('form');
+    if (form) {
+      clearInterval(interval);
+      
+      form.onsubmit = async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        
+        btn.disabled = true;
+        btn.innerHTML = 'Enviando...';
+
+        const payload = {
+          name: form.querySelector('input[name="name"]').value,
+          email: form.querySelector('input[name="email"]').value,
+          company: form.querySelector('input[name="company"]').value,
+          subject: form.querySelector('input[name="subject"]').value,
+          message: form.querySelector('textarea[name="message"]').value,
+        };
+
+        try {
+          const response = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (response.ok) {
+            alert('Mensagem enviada com sucesso!');
+            form.reset();
+          } else {
+            throw new Error();
+          }
+        } catch (err) {
+          alert('Erro ao enviar. Tente novamente ou use o WhatsApp.');
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = originalText;
+        }
+      };
+    }
+  }, 1000);
+</script>
+    
   </body>
 </html>
