@@ -1,70 +1,13 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2D954MEL7J"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2D954MEL7J');
-    </script>
-        
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daniel Mendes - Professor & Mentor</title>
-    <script type="module" crossorigin src="./assets/index-ChaBYJWK.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-82GZX0k6.css">
+    <script type="module" crossorigin src="./assets/index-C2MViVyo.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Blq_ADU5.css">
   </head>
   <body>
     <div id="root"></div>
-
-    <script>
-      function applyFix() {
-        const form = document.querySelector('form');
-        if (form && !form.dataset.fixed) {
-          form.dataset.fixed = "true";
-          
-          // Mata o evento original do React/Formspree
-          form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = 'Enviando...';
-
-            const payload = {
-              name: form.querySelector('[name="name"]')?.value,
-              email: form.querySelector('[name="email"]')?.value,
-              company: form.querySelector('[name="company"]')?.value,
-              subject: form.querySelector('[name="subject"]')?.value,
-              message: form.querySelector('[name="message"]')?.value,
-            };
-
-            try {
-              const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-              });
-
-              if (response.ok) {
-                alert('Mensagem enviada com sucesso para o Daniel!');
-                form.reset();
-              } else {
-                alert('Erro ao processar e-mail. Tente via WhatsApp no rodapé.');
-              }
-            } catch (err) {
-              alert('Erro de conexão. Verifique sua internet.');
-            } finally {
-              btn.disabled = false;
-              btn.innerHTML = originalText;
-            }
-          }, true); 
-        }
-      }
-      setInterval(applyFix, 1000);
-    </script>
   </body>
 </html>
