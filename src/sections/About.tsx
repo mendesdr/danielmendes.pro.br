@@ -4,9 +4,9 @@ import { Award, BookOpen, Brain, Lightbulb, Users, GraduationCap, ExternalLink }
 const credentials = [
   {
     icon: GraduationCap,
-    title: 'Mestrado em Psicologia',
+    title: 'Mestrado em Psicologia Organizacional e do Trabalho',
     subtitle: 'Universidade Metodista',
-    description: 'Psicologia da Saúde e Organizacional - Bolsa CAPES',
+    description: 'Bolsa CAPES',
   },
   {
     icon: BookOpen,
@@ -30,9 +30,9 @@ const credentials = [
 ];
 
 const expertise = [
-  { icon: Lightbulb, title: 'Inteligência Artificial', description: 'IA Generativa aplicada aos negócios' },
-  { icon: Users, title: 'Liderança Humanizada', description: 'Gestão focada em pessoas' },
-  { icon: Brain, title: 'Psicologia Positiva', description: 'Ciência do bem-estar no trabalho' },
+  { icon: Lightbulb, title: 'Autonomia Criativa', description: 'Estimular o aprendizado para dominar as inovações.' },
+  { icon: Users, title: 'Conexão Verdadeira', description: 'A base da liderança e do desenvolvimento sustentável.' },
+  { icon: Brain, title: 'Prática Orientada', description: 'Conhecimento que se traduz em ação e resultados diretos.' },
 ];
 
 export function About() {
@@ -72,11 +72,11 @@ export function About() {
             Sobre Mim
           </span>
           <h2 className="reveal opacity-0 text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6" style={{ animationDelay: '0.1s' }}>
-            Uma Jornada de <span className="text-gradient-gold">30+ Anos</span>
+            Desenvolver Pessoas para <span className="text-gradient-gold">Potencializar Negócios</span>
           </h2>
           <p className="reveal opacity-0 text-lg text-white/60 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
-            Da tecnologia à psicologia, construí uma carreira única na intersecção entre 
-            <span className="text-gold"> TI</span> e <span className="text-blue-light">Humanidade</span>
+            Minha missão é capacitar líderes e equipes a aprenderem e ensinarem em um mundo movido por 
+            <span className="text-gold"> Inovação Tecnológica</span> e <span className="text-blue-light">Humanidade</span>
           </p>
         </div>
 
@@ -89,13 +89,13 @@ export function About() {
                 <span className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center">
                   <Lightbulb className="w-5 h-5 text-gold" />
                 </span>
-                Minha Missão
+                Educador & Mentor
               </h3>
               <p className="text-white/70 leading-relaxed">
-                Ajudo profissionais a transformarem expectativa em realidade, usando a 
-                <span className="text-gold font-medium"> Inteligência Artificial</span> para potencializar 
-                o <span className="text-blue-light font-medium">ser humano</span>. Acredito que a verdadeira 
-                inovação nasce da interseção entre tecnologia e humanidade.
+                Mais do que entregar conteúdo, atuo como um facilitador de jornadas. Meu papel é apoiar você e sua equipe a 
+                <span className="text-gold font-medium"> aprenderem a absorver</span> o novo e a 
+                <span className="text-blue-light font-medium"> ensinarem outros</span> a prosperar.
+                Fomentando a autonomia, eu preparo profissionais para liderar na era exponencial.
               </p>
             </div>
 
@@ -104,26 +104,26 @@ export function About() {
                 <span className="w-10 h-10 rounded-xl bg-blue-brand/10 flex items-center justify-center">
                   <Users className="w-5 h-5 text-blue-light" />
                 </span>
-                Atuação
+                Minha Metodologia
               </h3>
               <div className="space-y-4">
                 <div className="flex gap-4">
                   <div className="w-1 bg-gold/30 rounded-full" />
                   <div>
-                    <p className="text-white font-medium mb-1">Para Profissionais de T&D</p>
+                    <p className="text-white font-medium mb-1">Mão na Massa (Pragmatismo)</p>
                     <p className="text-white/60 text-sm">
-                      Ensino a dominar a IA para criar treinamentos engajadores em tempo recorde. 
-                      Design Instrucional com IA, Metodologias Ativas e Ferramentas Tech.
+                      Do nível individual ao corporativo, todo conteúdo é traduzido em práticas reais que podem ser 
+                      aplicadas no dia seguinte para resolver problemas reais.
                     </p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="w-1 bg-blue-brand/30 rounded-full" />
                   <div>
-                    <p className="text-white font-medium mb-1">Para Líderes e Executivos</p>
+                    <p className="text-white font-medium mb-1">Ciência (Embasamento)</p>
                     <p className="text-white/60 text-sm">
-                      Desenvolvimento de liderança humanizada, focada em resultados sustentáveis 
-                      e bem-estar. Psicologia Organizacional Aplicada, Inteligência Emocional e Produtividade com IA.
+                      Não há "achismos". Trago os fundamentos sólidos da Psicologia Organizacional para embasar decisões 
+                      técnicas complexas com extrema segurança.
                     </p>
                   </div>
                 </div>

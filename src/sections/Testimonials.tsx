@@ -188,22 +188,6 @@ export function Testimonials() {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="reveal opacity-0 grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16" style={{ animationDelay: '0.5s' }}>
-          {[
-            { value: '3.500+', label: 'Profissionais Impactados' },
-            { value: '92,4', label: 'NPS médio de mais de 1400 respostas' },
-            { value: '30+', label: 'Anos de Experiência' },
-            { value: '100%', label: 'Recomendações' },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-6 rounded-2xl bg-white/5 border border-white/5"
-            >
-              <p className="text-3xl sm:text-4xl font-bold text-gradient-gold mb-2">{stat.value}</p>
-              <p className="text-white/60 text-sm">{stat.label}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

@@ -14,7 +14,7 @@ const services = [
       'Felicidade no Trabalho',
     ],
     color: 'gold',
-    cta: 'Contrate uma Palestra',
+    cta: 'Agende seu diagnóstico gratuito',
     link: '#contact',
   },
   {
@@ -29,7 +29,7 @@ const services = [
       'Criação de Treinamentos',
     ],
     color: 'blue',
-    cta: 'Solicite um Workshop',
+    cta: 'Agende seu diagnóstico gratuito',
     link: '#contact',
   },
   {
@@ -44,16 +44,16 @@ const services = [
       'Clareza de Propósito',
     ],
     color: 'gold',
-    cta: 'Agende uma Sessão',
+    cta: 'Agende seu diagnóstico gratuito',
     link: 'https://calendar.app.google/HBSKGgwkTEA2kzZf7',
   },
 ];
 
 const features = [
-  { icon: Sparkles, title: 'Design Instrucional com IA', description: 'Reduza o tempo de criação de conteúdos em até 50%' },
-  { icon: Target, title: 'Metodologias Ativas', description: 'Workshops que geram aprendizado real' },
-  { icon: Zap, title: 'Ferramentas Tech', description: 'Do Gamma ao Suno, kit completo de ferramentas' },
-  { icon: MessageSquare, title: 'Psicologia Positiva', description: 'Forças de caráter e otimismo (Seligman)' },
+  { icon: Sparkles, title: 'Prontidão para o Futuro', description: 'Equipes que compreendem e operam a IA ao invés de temê-la' },
+  { icon: Target, title: 'Mais Produtividade', description: 'Processos aprimorados que geram eficiência real no dia a dia' },
+  { icon: Zap, title: 'Liderança Conectada', description: 'Gestores capazes de inspirar engajamento humano em suas equipes' },
+  { icon: MessageSquare, title: 'Bem-estar Corporativo', description: 'Resiliência emocional construída na Ciência da Psicologia Positiva' },
 ];
 
 export function Services() {
@@ -156,7 +156,7 @@ export function Services() {
         {/* Features Grid */}
         <div className="reveal opacity-0 p-8 rounded-3xl bg-gradient-card border border-white/5" style={{ animationDelay: '0.6s' }}>
           <h3 className="text-2xl font-bold text-white text-center mb-8">
-            O Que Você Vai <span className="text-gradient-gold">Aprender</span>
+            Resultados da <span className="text-gradient-gold">Transformação</span>
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (

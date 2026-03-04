@@ -13,7 +13,8 @@ const clientsDirect = [
   'Leega',
   'Grupo Qualitat',
   'Kapazi',
-  'Amcham',
+  'Rede',
+  'SteelCorp',
 ];
 
 export function Clients() {
@@ -53,10 +54,10 @@ export function Clients() {
             Clientes Atendidos
           </span>
           <h2 className="reveal opacity-0 text-3xl sm:text-4xl font-bold text-white mb-4" style={{ animationDelay: '0.1s' }}>
-            Empresas que <span className="text-gradient-gold">Confiam</span> no Meu Trabalho
+            Algumas das Empresas de diversos setores que <span className="text-gradient-gold">Confiam</span> no Meu Trabalho
           </h2>
           <p className="reveal opacity-0 text-lg text-white/60 max-w-2xl mx-auto" style={{ animationDelay: '0.2s' }}>
-            Palestras, workshops e treinamentos para empresas de diversos setores
+            Palestras, workshops e treinamentos
           </p>
         </div>
 
@@ -104,8 +105,8 @@ export function Clients() {
         {/* Stats */}
         <div className="reveal opacity-0 grid grid-cols-3 gap-6 mt-12" style={{ animationDelay: '0.4s' }}>
           {[
-            { value: '15+', label: 'Empresas Atendidas' },
-            { value: '50+', label: 'Treinamentos Realizados' },
+            { value: '20+', label: 'Empresas Atendidas' },
+            { value: '200+', label: 'Cursos, Treinamentos e Palestras' },
             { value: '3.5K+', label: 'Profissionais Impactados' },
           ].map((stat, index) => (
             <div
