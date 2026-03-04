@@ -95,7 +95,7 @@ export function Services() {
             Como Posso <span className="text-gradient-blue">Ajudar</span>
           </h2>
           <p className="reveal opacity-0 text-lg text-white/60 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
-            Ofereço soluções personalizadas para profissionais de T&D, líderes e empresas 
+            Ofereço soluções personalizadas para profissionais de T&D, líderes e empresas
             que buscam transformação através da IA e liderança humanizada
           </p>
         </div>
@@ -140,11 +140,10 @@ export function Services() {
                     e.preventDefault();
                     document.querySelector(service.link)?.scrollIntoView({ behavior: 'smooth' });
                   } : undefined}
-                  className={`inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 ${
-                    service.color === 'gold'
+                  className={`inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 ${service.color === 'gold'
                       ? 'bg-gold text-dark hover:bg-gold-light hover:shadow-glow'
                       : 'bg-blue-brand text-white hover:bg-blue-light hover:shadow-glow-blue'
-                  }`}
+                    }`}
                 >
                   <Calendar size={18} />
                   {service.cta}
@@ -173,6 +172,21 @@ export function Services() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Action Call - Prática Imediata */}
+        <div className="reveal opacity-0 mt-16 text-center" style={{ animationDelay: '0.8s' }}>
+          <p className="text-xl sm:text-2xl font-medium text-white mb-8">
+            Qual dessas transformações sua equipe precisa para amanhã?
+          </p>
+          <a
+            href="https://wa.me/5511930301065?text=Olá%20Daniel,%20gostaria%20de%20conversar%20sobre%20como%20transformar%20minha%20equipe."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-green-500 text-white font-bold rounded-full hover:bg-green-600 hover:scale-105 transition-all duration-300 shadow-glow"
+          >
+            Falar pelo WhatsApp
+          </a>
         </div>
       </div>
     </section>

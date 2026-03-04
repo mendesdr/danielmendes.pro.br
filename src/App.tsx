@@ -6,6 +6,7 @@ import { Services } from './sections/Services';
 import { Testimonials } from './sections/Testimonials';
 import { Contact } from './sections/Contact';
 import { Footer } from './sections/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
 import { Toaster } from '@/components/ui/sonner';
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <Toaster 
+      <WhatsAppButton />
+      <Toaster
         position="bottom-right"
         toastOptions={{
           style: {
