@@ -31,6 +31,31 @@ export default async function handler(req, res) {
       `,
     });
 
+    // INTEGRAÇÃO COM MAKE.COM (WEBHOOK)
+    const webhookUrl = process.env.MAKE_WEBHOOK_URL;
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            nome: name,
+            email: email,
+            empresa: company,
+            assunto: subject,
+            mensagem: message,
+            origem: 'Site Oficial',
+            data: new Date().toISOString()
+          }),
+        });
+      } catch (webhookError) {
+        console.error('Erro ao enviar para o webhook do Make:', webhookError);
+        // Não quebramos a requisição se o webhook falhar, o email já foi enviado.
+      }
+    }
+
     return res.status(200).json({ success: true, id: data.id });
   } catch (error) {
     return res.status(500).json({ error: error.message });

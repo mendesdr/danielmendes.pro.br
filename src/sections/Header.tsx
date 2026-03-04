@@ -83,7 +83,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-gold text-dark font-semibold text-sm rounded-xl hover:bg-gold-light hover:shadow-glow transition-all duration-300"
             >
-              Agende uma Sessão
+              Agende seu Diagnóstico
             </a>
           </div>
 
@@ -119,7 +119,7 @@ export function Header() {
                 rel="noopener noreferrer"
                 className="mt-2 px-4 py-3 bg-gold text-dark font-semibold text-center rounded-xl hover:bg-gold-light transition-colors"
               >
-                Agende uma Sessão
+                Agende seu Diagnóstico
               </a>
             </nav>
           </div>
