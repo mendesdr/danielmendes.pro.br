@@ -81,16 +81,13 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Using Formspree for form submission
-      const response = await fetch('https://formspree.io/f/daniel@danielmendes.pro.br', {
+      // Use API Route para Envio via Resend
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          _subject: `Novo contato do site: ${formData.subject}`,
-        }),
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {

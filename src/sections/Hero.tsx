@@ -5,7 +5,7 @@ import { ArrowRight, Play, Calendar, Linkedin, Youtube, Instagram } from 'lucide
 function TikTokIcon({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
     </svg>
   );
 }
@@ -43,9 +43,9 @@ export function Hero() {
         {/* Gradient Orbs */}
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-brand/10 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
-        
+
         {/* Grid Pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
@@ -76,8 +76,8 @@ export function Hero() {
             {/* Subtitle */}
             <p className="reveal opacity-0 text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl" style={{ animationDelay: '0.2s' }}>
               Atuo na intersecção entre <span className="text-gold font-medium">Tecnologia (IA)</span> e{' '}
-              <span className="text-blue-light font-medium">Humanidade (Psicologia)</span>. 
-              Com 30+ anos de experiência, ajudo profissionais e empresas a alcançarem resultados 
+              <span className="text-blue-light font-medium">Humanidade (Psicologia)</span>.
+              Com 30+ anos de experiência, ajudo profissionais e empresas a alcançarem resultados
               extraordinários através da liderança humanizada e inteligência artificial.
             </p>
 
@@ -180,7 +180,7 @@ export function Hero() {
             <div className="reveal opacity-0 relative" style={{ animationDelay: '0.3s' }}>
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-gold/30 to-blue-brand/30 rounded-3xl blur-3xl scale-110" />
-              
+
               {/* Image Container */}
               <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px]">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-gold/20 to-blue-brand/20 p-[2px]">
@@ -192,7 +192,7 @@ export function Hero() {
                     />
                   </div>
                 </div>
-                
+
                 {/* Floating Badge */}
                 <div className="absolute -bottom-4 -left-4 px-4 py-3 rounded-xl glass-effect border border-white/10 shadow-xl">
                   <div className="flex items-center gap-3">
@@ -205,9 +205,9 @@ export function Hero() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Floating Badge 2 */}
-                <div className="absolute -top-4 -left-4 md:-right-4 md:left-auto px-4 py-3 rounded-xl glass-effect border border-white/10 shadow-xl">
+                <div className="absolute -top-16 -left-4 md:-top-4 md:-right-4 md:left-auto px-4 py-3 rounded-xl glass-effect border border-white/10 shadow-xl z-20">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-blue-brand flex items-center justify-center">
                       <span className="text-white font-bold">IA</span>
