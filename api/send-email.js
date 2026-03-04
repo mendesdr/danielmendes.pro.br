@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, subject, company, message } = req.body;
+    const { name, email, phone, company, demand, subject, message } = req.body;
 
     // USAR O E-MAIL DE TESTE DO RESEND ENQUANTO NÃO VALIDA O DOMÍNIO
     const fromEmail = "daniel@email.danielmendes.pro.br"; 
@@ -23,7 +23,9 @@ export default async function handler(req, res) {
         <h3>Novo contato via site danielmendes.pro.br</h3>
         <p><strong>Nome:</strong> ${name}</p>
         <p><strong>Email do Lead:</strong> ${email}</p>
+        <p><strong>Celular:</strong> ${phone || 'Não informado'}</p>
         <p><strong>Empresa:</strong> ${company || 'Não informada'}</p>
+        <p><strong>Demanda:</strong> ${demand}</p>
         <p><strong>Assunto:</strong> ${subject}</p>
         <hr />
         <p><strong>Mensagem:</strong></p>
@@ -43,7 +45,9 @@ export default async function handler(req, res) {
           body: JSON.stringify({
             nome: name,
             email: email,
-            empresa: company,
+            celular: phone || '',
+            empresa: company || '',
+            demanda: demand || '',
             assunto: subject,
             mensagem: message,
             origem: 'Site Oficial',

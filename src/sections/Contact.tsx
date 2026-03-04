@@ -4,6 +4,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { toast } from 'sonner';
 
 // TikTok icon component
@@ -51,7 +58,9 @@ export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
+    demand: '',
     subject: '',
     message: '',
   });
@@ -97,7 +106,9 @@ export function Contact() {
         setFormData({
           name: '',
           email: '',
+          phone: '',
           company: '',
+          demand: '',
           subject: '',
           message: '',
         });
@@ -109,7 +120,7 @@ export function Contact() {
       const mailtoLink = `mailto:daniel@danielmendes.pro.br?subject=${encodeURIComponent(
         `Contato do site: ${formData.subject}`
       )}&body=${encodeURIComponent(
-        `Nome: ${formData.name}\nEmail: ${formData.email}\nEmpresa: ${formData.company}\n\nMensagem:\n${formData.message}`
+        `Nome: ${formData.name}\nEmail: ${formData.email}\nCelular: ${formData.phone}\nEmpresa: ${formData.company}\nDemanda: ${formData.demand}\n\nMensagem:\n${formData.message}`
       )}`;
       window.open(mailtoLink, '_blank');
       
@@ -120,7 +131,9 @@ export function Contact() {
       setFormData({
         name: '',
         email: '',
+        phone: '',
         company: '',
+        demand: '',
         subject: '',
         message: '',
       });
@@ -255,6 +268,19 @@ export function Contact() {
 
               <div className="grid sm:grid-cols-2 gap-6 mb-6">
                 <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-white/80">
+                    Celular
+                  </Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="(00) 00000-0000"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-gold focus:ring-gold/20"
+                  />
+                </div>
+                <div className="space-y-2">
                   <Label htmlFor="company" className="text-white/80">
                     Empresa
                   </Label>
@@ -266,6 +292,28 @@ export function Contact() {
                     placeholder="Nome da empresa"
                     className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-gold focus:ring-gold/20"
                   />
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                <div className="space-y-2">
+                  <Label htmlFor="demand" className="text-white/80">
+                    Demanda <span className="text-gold">*</span>
+                  </Label>
+                  <Select
+                    value={formData.demand}
+                    onValueChange={(value) => setFormData(prev => ({ ...prev, demand: value }))}
+                    required
+                  >
+                    <SelectTrigger className="w-full bg-white/5 border-white/10 text-white focus:border-gold focus:ring-gold/20 h-10">
+                      <SelectValue placeholder="Selecione o que procura" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-dark border-white/10 text-white">
+                      <SelectItem value="Palestra" className="hover:bg-white/10 focus:bg-white/10 cursor-pointer focus:text-gold">Palestra</SelectItem>
+                      <SelectItem value="Mentoria Individual" className="hover:bg-white/10 focus:bg-white/10 cursor-pointer focus:text-gold">Mentoria Individual</SelectItem>
+                      <SelectItem value="Treinamento" className="hover:bg-white/10 focus:bg-white/10 cursor-pointer focus:text-gold">Treinamento</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-white/80">
