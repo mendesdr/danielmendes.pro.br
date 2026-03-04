@@ -1,0 +1,130 @@
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+
+const navItems = [
+  { label: 'Início', href: '#hero' },
+  { label: 'Sobre', href: '#about' },
+  { label: 'Clientes', href: '#clients' },
+  { label: 'Serviços', href: '#services' },
+  { label: 'Depoimentos', href: '#testimonials' },
+  { label: 'Contato', href: '#contact' },
+];
+
+export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'glass-effect border-b border-white/5 py-3'
+          : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('#hero');
+            }}
+            className="flex items-center gap-2 group"
+          >
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center shadow-glow group-hover:shadow-glow-strong transition-shadow duration-300">
+              <span className="text-dark font-bold text-lg">DM</span>
+            </div>
+            <span className="text-white font-semibold text-lg hidden sm:block">
+              Daniel<span className="text-gold">Mendes</span>
+            </span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-1">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                }}
+                className="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-300"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <a
+              href="https://calendar.app.google/HBSKGgwkTEA2kzZf7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 bg-gold text-dark font-semibold text-sm rounded-xl hover:bg-gold-light hover:shadow-glow transition-all duration-300"
+            >
+              Agende uma Sessão
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-white/5 pt-4 animate-fade-in">
+            <nav className="flex flex-col gap-2">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  }}
+                  className="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-300"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href="https://calendar.app.google/HBSKGgwkTEA2kzZf7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 px-4 py-3 bg-gold text-dark font-semibold text-center rounded-xl hover:bg-gold-light transition-colors"
+              >
+                Agende uma Sessão
+              </a>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+}

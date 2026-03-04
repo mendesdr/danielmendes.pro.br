@@ -1,0 +1,180 @@
+import { useEffect, useRef } from 'react';
+import { Mic, Users, Brain, Sparkles, Target, Zap, MessageSquare, Calendar } from 'lucide-react';
+
+const services = [
+  {
+    icon: Mic,
+    title: 'Palestras',
+    subtitle: 'Inspire sua audiência',
+    description: 'Palestras sob medida para eventos corporativos, congressos e workshops com conteúdo prático e embasamento científico.',
+    topics: [
+      'IA Generativa nos Negócios',
+      'Liderança Humanizada',
+      'IA + Humanidade',
+      'Felicidade no Trabalho',
+    ],
+    color: 'gold',
+    cta: 'Contrate uma Palestra',
+    link: '#contact',
+  },
+  {
+    icon: Users,
+    title: 'Workshops',
+    subtitle: 'Aprendizado prático',
+    description: 'Workshops interativos que combinam teoria e prática para transformar conhecimento em ação imediata.',
+    topics: [
+      'Design Instrucional com IA',
+      'Metodologias Ativas',
+      'Ferramentas Tech (Gamma, Suno)',
+      'Criação de Treinamentos',
+    ],
+    color: 'blue',
+    cta: 'Solicite um Workshop',
+    link: '#contact',
+  },
+  {
+    icon: Brain,
+    title: 'Mentoria Individual',
+    subtitle: 'Desenvolvimento personalizado',
+    description: 'Programa personalizado que combina ciência da psicologia positiva, inteligência emocional e ferramentas de IA.',
+    topics: [
+      'Psicologia Positiva Aplicada',
+      'Inteligência Emocional',
+      'Produtividade com IA',
+      'Clareza de Propósito',
+    ],
+    color: 'gold',
+    cta: 'Agende uma Sessão',
+    link: 'https://calendar.app.google/HBSKGgwkTEA2kzZf7',
+  },
+];
+
+const features = [
+  { icon: Sparkles, title: 'Design Instrucional com IA', description: 'Reduza o tempo de criação de conteúdos em até 50%' },
+  { icon: Target, title: 'Metodologias Ativas', description: 'Workshops que geram aprendizado real' },
+  { icon: Zap, title: 'Ferramentas Tech', description: 'Do Gamma ao Suno, kit completo de ferramentas' },
+  { icon: MessageSquare, title: 'Psicologia Positiva', description: 'Forças de caráter e otimismo (Seligman)' },
+];
+
+export function Services() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-up');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const elements = sectionRef.current?.querySelectorAll('.reveal');
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="services" ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-dark-light">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gold/5 rounded-full blur-[200px]" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <span className="reveal opacity-0 inline-block px-4 py-1.5 rounded-full bg-blue-brand/10 border border-blue-brand/20 text-blue-light text-sm font-medium mb-4">
+            Serviços
+          </span>
+          <h2 className="reveal opacity-0 text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6" style={{ animationDelay: '0.1s' }}>
+            Como Posso <span className="text-gradient-blue">Ajudar</span>
+          </h2>
+          <p className="reveal opacity-0 text-lg text-white/60 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
+            Ofereço soluções personalizadas para profissionais de T&D, líderes e empresas 
+            que buscam transformação através da IA e liderança humanizada
+          </p>
+        </div>
+
+        {/* Services Cards */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-20">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="reveal opacity-0 group relative"
+              style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+            >
+              <div className={`relative p-8 rounded-2xl bg-gradient-card border border-white/5 hover:border-${service.color}/30 transition-all duration-500 hover-lift h-full flex flex-col`}>
+                {/* Icon */}
+                <div className={`w-16 h-16 rounded-2xl bg-${service.color}/10 flex items-center justify-center mb-6 group-hover:bg-${service.color}/20 transition-colors`}>
+                  <service.icon className={`w-8 h-8 text-${service.color === 'gold' ? 'gold' : 'blue-light'}`} />
+                </div>
+
+                {/* Content */}
+                <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
+                <p className={`text-sm font-medium mb-4 ${service.color === 'gold' ? 'text-gold' : 'text-blue-light'}`}>
+                  {service.subtitle}
+                </p>
+                <p className="text-white/60 mb-6 flex-grow">{service.description}</p>
+
+                {/* Topics */}
+                <div className="space-y-2 mb-8">
+                  {service.topics.map((topic, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <div className={`w-1.5 h-1.5 rounded-full ${service.color === 'gold' ? 'bg-gold' : 'bg-blue-light'}`} />
+                      <span className="text-white/70 text-sm">{topic}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <a
+                  href={service.link}
+                  target={service.link.startsWith('http') ? '_blank' : undefined}
+                  rel={service.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  onClick={!service.link.startsWith('http') ? (e) => {
+                    e.preventDefault();
+                    document.querySelector(service.link)?.scrollIntoView({ behavior: 'smooth' });
+                  } : undefined}
+                  className={`inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 ${
+                    service.color === 'gold'
+                      ? 'bg-gold text-dark hover:bg-gold-light hover:shadow-glow'
+                      : 'bg-blue-brand text-white hover:bg-blue-light hover:shadow-glow-blue'
+                  }`}
+                >
+                  <Calendar size={18} />
+                  {service.cta}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Features Grid */}
+        <div className="reveal opacity-0 p-8 rounded-3xl bg-gradient-card border border-white/5" style={{ animationDelay: '0.6s' }}>
+          <h3 className="text-2xl font-bold text-white text-center mb-8">
+            O Que Você Vai <span className="text-gradient-gold">Aprender</span>
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="group p-5 rounded-xl bg-white/5 border border-white/5 hover:border-gold/30 hover:bg-gold/5 transition-all duration-300 text-center"
+              >
+                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
+                  <feature.icon className="w-6 h-6 text-gold" />
+                </div>
+                <h4 className="text-white font-semibold mb-2">{feature.title}</h4>
+                <p className="text-white/50 text-sm">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
