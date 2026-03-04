@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ArrowRight, Play, Calendar, Linkedin, Youtube, Instagram } from 'lucide-react';
+import { ArrowRight, Calendar, Linkedin, Youtube, Instagram } from 'lucide-react';
 
 // TikTok icon component
 function TikTokIcon({ size = 18 }: { size?: number }) {
@@ -62,7 +62,7 @@ export function Hero() {
             {/* Badge */}
             <div className="reveal opacity-0 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
               <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-              <span className="text-sm text-white/80">Professor ESPM | Mentor de Executivos</span>
+              <span className="text-sm text-white/80">Palestras | Treinamentos | Mentorias</span>
             </div>
 
             {/* Title */}
@@ -75,10 +75,10 @@ export function Hero() {
 
             {/* Subtitle */}
             <p className="reveal opacity-0 text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl" style={{ animationDelay: '0.2s' }}>
-              Atuo na intersecção entre <span className="text-gold font-medium">Tecnologia (IA)</span> e{' '}
-              <span className="text-blue-light font-medium">Humanidade (Psicologia)</span>.
-              Com 30+ anos de experiência, ajudo profissionais e empresas a alcançarem resultados
-              extraordinários através da liderança humanizada e inteligência artificial.
+              Atuo na intersecção entre <span className="text-gold font-medium">Tecnologia</span> e{' '}
+              <span className="text-blue-light font-medium">Humanidade</span>.
+              Ajudo profissionais e empresas a alcançarem resultados
+              através da liderança humanizada e inteligência artificial.
             </p>
 
             {/* Stats */}
@@ -121,19 +121,8 @@ export function Hero() {
                 className="group inline-flex items-center gap-2 px-6 py-3.5 bg-gold text-dark font-semibold rounded-xl hover:bg-gold-light hover:shadow-glow transition-all duration-300"
               >
                 <Calendar size={20} />
-                Agende uma Sessão Gratuita
+                Agende seu diagnóstico de maturidade gratuito
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#services"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-white/5 text-white font-semibold rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-              >
-                <Play size={20} />
-                Conheça Meus Serviços
               </a>
             </div>
 
