@@ -151,6 +151,7 @@ export function About() {
                           href={item.link}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`Acessar ${item.title}`}
                           className="text-gold hover:text-gold-light transition-colors"
                         >
                           <ExternalLink className="w-4 h-4" />
