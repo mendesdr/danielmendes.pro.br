@@ -1,18 +1,34 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const navItems = [
   { label: 'Início', href: '#hero' },
   { label: 'Sobre', href: '#about' },
   { label: 'Clientes', href: '#clients' },
   { label: 'Serviços', href: '#services' },
-  { label: 'Depoimentos', href: '#testimonials' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contato', href: '#contact' },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // If location has a hash and we just navigated to root, scroll to it
+    if (location.pathname === '/' && location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,12 +39,27 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleNavigation = (href: string) => {
     setIsMobileMenuOpen(false);
+
+    if (href.startsWith('/')) {
+      // It's a route link
+      navigate(href);
+      return;
+    }
+
+    if (href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        // Go to home page with hash
+        navigate(`/${href}`);
+      } else {
+        // Smooth scroll if already on home page
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
   };
 
   return (
@@ -46,7 +77,7 @@ export function Header() {
             href="#hero"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('#hero');
+              handleNavigation('#hero');
             }}
             className="flex items-center gap-2 group"
           >
@@ -66,7 +97,7 @@ export function Header() {
                 href={item.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection(item.href);
+                  handleNavigation(item.href);
                 }}
                 className="px-4 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-300"
               >
@@ -106,7 +137,7 @@ export function Header() {
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection(item.href);
+                    handleNavigation(item.href);
                   }}
                   className="px-4 py-3 text-white/70 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-300"
                 >

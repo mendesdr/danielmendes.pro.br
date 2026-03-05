@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import { Header } from './sections/Header';
 import { Hero } from './sections/Hero';
 import { About } from './sections/About';
@@ -8,19 +9,36 @@ import { Contact } from './sections/Contact';
 import { Footer } from './sections/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { Toaster } from '@/components/ui/sonner';
+import { BlogList } from './pages/BlogList';
+import { BlogPost } from './pages/BlogPost';
+
+// O conteúdo original da página única de destino
+function LandingPage() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <Clients />
+      <Services />
+      <Testimonials />
+      <Contact />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark text-white overflow-x-hidden">
+    <div className="min-h-screen bg-dark text-white overflow-x-hidden flex flex-col">
       <Header />
-      <main>
-        <Hero />
-        <About />
-        <Clients />
-        <Services />
-        <Testimonials />
-        <Contact />
+      
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+        </Routes>
       </main>
+
       <Footer />
       <WhatsAppButton />
       <Toaster
