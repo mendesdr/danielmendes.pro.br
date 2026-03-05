@@ -51,7 +51,7 @@ export function BlogPost() {
         {/* Navigation back */}
         <Link 
           to="/blog" 
-          className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-12"
         >
           <ArrowLeft size={20} />
           Voltar para o Blog
@@ -59,7 +59,7 @@ export function BlogPost() {
 
         {/* Article Header */}
         <header className="mb-12 border-b border-white/10 pb-12">
-          <div className="flex items-center gap-4 mb-6 text-sm font-semibold text-white/50">
+          <div className="flex items-center gap-4 mb-6 text-sm font-semibold text-white/70">
             <span className="px-3 py-1 rounded-full bg-gold/10 text-gold">
               {post.category}
             </span>
@@ -75,11 +75,11 @@ export function BlogPost() {
 
           <div className="flex items-center gap-4">
              <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 flex-shrink-0">
-               <img src="/daniel-hero.jpg" alt="Daniel Mendes" className="w-full h-full object-cover" />
+               <img src="/daniel-hero.jpg" alt="Daniel Mendes" className="w-full h-full object-cover" loading="lazy" width="48" height="48" />
              </div>
              <div>
                <p className="text-white font-semibold">Daniel Mendes</p>
-               <p className="text-white/50 text-sm">Professor ESPM & Especialista em IA</p>
+               <p className="text-white/70 text-sm">Professor ESPM & Especialista em IA</p>
              </div>
           </div>
         </header>
@@ -91,6 +91,8 @@ export function BlogPost() {
               src={post.coverImage} 
               alt={post.title} 
               className="w-full h-full object-cover"
+              fetchpriority="high"
+              loading="eager"
             />
           </div>
         )}

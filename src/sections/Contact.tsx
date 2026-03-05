@@ -234,7 +234,7 @@ export function Contact() {
               <MapPin className="w-5 h-5 text-gold" />
               <div>
                 <p className="text-white font-medium">São Paulo, Brasil</p>
-                <p className="text-white/50 text-sm">Atendimento presencial e online</p>
+                <p className="text-white/70 text-sm">Atendimento presencial e online</p>
               </div>
             </div>
           </div>

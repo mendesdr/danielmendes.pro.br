@@ -158,7 +158,7 @@ export function About() {
                       )}
                     </div>
                     <p className="text-gold text-sm mb-1">{item.subtitle}</p>
-                    <p className="text-white/50 text-sm">{item.description}</p>
+                    <p className="text-white/70 text-sm">{item.description}</p>
                   </div>
                 </div>
               </div>

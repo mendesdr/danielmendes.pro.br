@@ -168,7 +168,7 @@ export function Services() {
                   <feature.icon className="w-6 h-6 text-gold" />
                 </div>
                 <h4 className="text-white font-semibold mb-2">{feature.title}</h4>
-                <p className="text-white/50 text-sm">{feature.description}</p>
+                <p className="text-white/70 text-sm">{feature.description}</p>
               </div>
             ))}
           </div>

@@ -65,7 +65,7 @@ export function Clients() {
         <div className="reveal opacity-0" style={{ animationDelay: '0.3s' }}>
           {/* ESPM Clients */}
           <div className="mb-8">
-            <p className="text-white/50 text-sm mb-4 text-center">Através da ESPM</p>
+            <p className="text-white/70 text-sm mb-4 text-center">Através da ESPM</p>
             <div className="flex flex-wrap justify-center gap-4">
               {clientsESPM.map((client, index) => (
                 <div
@@ -114,7 +114,7 @@ export function Clients() {
               className="text-center p-4 rounded-xl bg-white/5 border border-white/5"
             >
               <p className="text-2xl sm:text-3xl font-bold text-gradient-gold mb-1">{stat.value}</p>
-              <p className="text-white/50 text-sm">{stat.label}</p>
+              <p className="text-white/70 text-sm">{stat.label}</p>
             </div>
           ))}
         </div>

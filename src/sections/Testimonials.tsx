@@ -154,12 +154,14 @@ export function Testimonials() {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={goToPrev}
+                    aria-label="Depoimento anterior"
                     className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:border-gold/30 hover:bg-gold/10 transition-all duration-300"
                   >
                     <ChevronLeft size={20} />
                   </button>
                   <button
                     onClick={goToNext}
+                    aria-label="Próximo depoimento"
                     className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:border-gold/30 hover:bg-gold/10 transition-all duration-300"
                   >
                     <ChevronRight size={20} />
@@ -178,6 +180,7 @@ export function Testimonials() {
                   setIsAutoPlaying(false);
                   setCurrentIndex(index);
                 }}
+                aria-label={`Ir para o depoimento ${index + 1}`}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
                     ? 'w-8 bg-gold'

@@ -152,10 +152,10 @@ export function Footer() {
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white/40 text-sm text-center sm:text-left">
+            <p className="text-white/60 text-sm text-center sm:text-left">
               &copy; {new Date().getFullYear()} Daniel Mendes. Todos os direitos reservados.
             </p>
-            <p className="text-white/40 text-sm flex items-center gap-1">
+            <p className="text-white/60 text-sm flex items-center gap-1">
               Feito com <Heart className="w-4 h-4 text-red-500 fill-red-500" /> em São Paulo
             </p>
           </div>

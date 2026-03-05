@@ -24,7 +24,7 @@ export function BlogList() {
         {/* Navigation back */}
         <Link 
           to="/" 
-          className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-12"
         >
           <ArrowLeft size={20} />
           Voltar para Home
@@ -58,12 +58,13 @@ export function BlogList() {
                   src={post.coverImage} 
                   alt={post.title} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
                 />
               </div>
 
               {/* Content */}
               <div className="p-8 flex flex-col flex-grow">
-                <div className="flex items-center gap-4 mb-4 text-xs font-semibold text-white/50">
+                <div className="flex items-center gap-4 mb-4 text-xs font-semibold text-white/70">
                   <span className="px-3 py-1 rounded-full bg-gold/10 text-gold">
                     {post.category}
                   </span>
@@ -90,7 +91,7 @@ export function BlogList() {
           ))}
           
           {posts.length === 0 && (
-            <div className="col-span-full py-16 text-center text-white/40">
+            <div className="col-span-full py-16 text-center text-white/60">
               <p>Nenhum artigo encontrado. Em breve novos conteúdos!</p>
             </div>
           )}
