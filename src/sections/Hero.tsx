@@ -180,7 +180,7 @@ export function Hero() {
                       src="/daniel-hero.jpg"
                       alt="Daniel Mendes"
                       className="w-full h-full object-cover"
-                      fetchpriority="high"
+                      fetchPriority="high"
                       loading="eager"
                       width="450"
                       height="450"

@@ -91,7 +91,7 @@ export function BlogPost() {
               src={post.coverImage} 
               alt={post.title} 
               className="w-full h-full object-cover"
-              fetchpriority="high"
+              fetchPriority="high"
               loading="eager"
             />
           </div>
