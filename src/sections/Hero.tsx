@@ -131,6 +131,7 @@ export function Hero() {
                 href="https://www.linkedin.com/in/daniel-mendes"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Perfil no LinkedIn"
                 className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-gold hover:border-gold/30 hover:bg-gold/10 transition-all duration-300"
               >
                 <Linkedin size={18} />
@@ -139,6 +140,7 @@ export function Hero() {
                 href="https://youtube.com/@psicopositiva"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Canal no YouTube"
                 className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-red-500 hover:border-red-500/30 hover:bg-red-500/10 transition-all duration-300"
               >
                 <Youtube size={18} />
@@ -147,6 +149,7 @@ export function Hero() {
                 href="https://instagram.com/danielrmendes"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Perfil no Instagram"
                 className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-pink-500 hover:border-pink-500/30 hover:bg-pink-500/10 transition-all duration-300"
               >
                 <Instagram size={18} />
@@ -155,6 +158,7 @@ export function Hero() {
                 href="https://tiktok.com/@danielmendes.me"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Perfil no TikTok"
                 className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all duration-300"
               >
                 <TikTokIcon size={18} />
