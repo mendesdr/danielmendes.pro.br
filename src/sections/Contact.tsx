@@ -143,9 +143,23 @@ export function Contact() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    let value = e.target.value;
+
+    if (e.target.name === 'phone') {
+      value = value.replace(/\D/g, ''); // Remove non-numeric
+      if (value.length > 11) value = value.slice(0, 11); // Max 11 digits
+
+      if (value.length > 2) {
+        value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+      }
+      if (value.length > 10) {
+        value = `${value.slice(0, 10)}-${value.slice(10)}`;
+      }
+    }
+
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     }));
   };
 

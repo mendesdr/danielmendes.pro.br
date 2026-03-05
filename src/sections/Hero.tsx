@@ -75,10 +75,8 @@ export function Hero() {
 
             {/* Subtitle */}
             <p className="reveal opacity-0 text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl" style={{ animationDelay: '0.2s' }}>
-              Atuo na intersecção entre <span className="text-gold font-medium">Tecnologia</span> e{' '}
-              <span className="text-blue-light font-medium">Humanidade</span>.
-              Ajudo profissionais e empresas a alcançarem resultados
-              através da liderança humanizada e inteligência artificial.
+              Na intersecção entre <span className="text-gold font-medium">Tecnologia</span> e{' '}
+              <span className="text-blue-light font-medium">Humanidade</span>, aprendo e ensino. Capacito líderes e empresas a gerarem resultados reais através da Inteligência Artificial e da Liderança Humanizada.
             </p>
 
             {/* Stats */}
@@ -106,8 +104,8 @@ export function Hero() {
                   <span className="text-gold font-bold text-lg">92,4</span>
                 </div>
                 <div>
-                  <p className="text-white font-semibold">NPS</p>
-                  <p className="text-white/50 text-sm">Médio</p>
+                  <p className="text-white font-semibold">NPS Médio</p>
+                  <p className="text-white/50 text-sm">{'> 1.400 respostas'}</p>
                 </div>
               </div>
             </div>
