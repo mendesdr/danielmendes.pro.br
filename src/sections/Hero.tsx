@@ -87,7 +87,7 @@ export function Hero() {
                 </div>
                 <div>
                   <p className="text-white font-semibold">Anos</p>
-                  <p className="text-white/50 text-sm">Experiência</p>
+                  <p className="text-white/70 text-sm">Experiência</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -96,7 +96,7 @@ export function Hero() {
                 </div>
                 <div>
                   <p className="text-white font-semibold">Profissionais</p>
-                  <p className="text-white/50 text-sm">Impactados</p>
+                  <p className="text-white/70 text-sm">Impactados</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -105,7 +105,7 @@ export function Hero() {
                 </div>
                 <div>
                   <p className="text-white font-semibold">NPS Médio</p>
-                  <p className="text-white/50 text-sm">{'> 1.400 respostas'}</p>
+                  <p className="text-white/70 text-sm">{'> 1.400 respostas'}</p>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@ export function Hero() {
 
             {/* Social Links */}
             <div className="reveal opacity-0 flex items-center gap-4" style={{ animationDelay: '0.5s' }}>
-              <span className="text-white/50 text-sm">Siga-me:</span>
+              <span className="text-white/70 text-sm">Siga-me:</span>
               <a
                 href="https://www.linkedin.com/in/daniel-mendes"
                 target="_blank"
@@ -180,6 +180,10 @@ export function Hero() {
                       src="/daniel-hero.jpg"
                       alt="Daniel Mendes"
                       className="w-full h-full object-cover"
+                      fetchpriority="high"
+                      loading="eager"
+                      width="450"
+                      height="450"
                     />
                   </div>
                 </div>
@@ -192,7 +196,7 @@ export function Hero() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">Professor</p>
-                      <p className="text-white/50 text-xs">MBA Data Analytics</p>
+                      <p className="text-white/70 text-xs">MBA Data Analytics</p>
                     </div>
                   </div>
                 </div>
@@ -205,7 +209,7 @@ export function Hero() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">Especialista</p>
-                      <p className="text-white/50 text-xs">IA e Psicologia</p>
+                      <p className="text-white/70 text-xs">IA e Psicologia</p>
                     </div>
                   </div>
                 </div>
@@ -217,7 +221,7 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-white/40 text-xs uppercase tracking-widest">Scroll</span>
+        <span className="text-white/60 text-xs uppercase tracking-widest">Scroll</span>
         <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2">
           <div className="w-1.5 h-3 rounded-full bg-gold animate-bounce" />
         </div>
