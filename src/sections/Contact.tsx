@@ -319,7 +319,7 @@ export function Contact() {
                     onValueChange={(value) => setFormData(prev => ({ ...prev, demand: value }))}
                     required
                   >
-                    <SelectTrigger className="w-full bg-white/5 border-white/10 text-white focus:border-gold focus:ring-gold/20 h-10">
+                    <SelectTrigger className="w-full bg-white/5 border-white/10 text-white focus:border-gold focus:ring-gold/20 h-10" aria-label="Selecionar demanda">
                       <SelectValue placeholder="Selecione o que procura" />
                     </SelectTrigger>
                     <SelectContent className="bg-dark border-white/10 text-white">

@@ -205,7 +205,7 @@ export function Hero() {
                 <div className="absolute -top-16 -left-4 md:-top-4 md:-right-4 md:left-auto px-4 py-3 rounded-xl glass-effect border border-white/10 shadow-xl z-20">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-blue-brand flex items-center justify-center">
-                      <span className="text-white font-bold">IA</span>
+                      <span className="text-dark font-bold">IA</span>
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">Especialista</p>
