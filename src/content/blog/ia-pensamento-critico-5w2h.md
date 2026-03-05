@@ -2,7 +2,7 @@
 title: "IA, Pensamento Crítico e 5W2H: A Tríade do Profissional do Futuro"
 date: "2026-03-05"
 excerpt: "A Inteligência Artificial não substitui o raciocínio, ela o potencializa. Entenda como combinar o método 5W2H com ferramentas genrativas para praticar o PATE: Pensar, Aprender, Ter Ideias e Estruturar."
-coverImage: "/daniel-hero.jpg"
+coverImage: "/5w2h.png"
 category: "Inteligência Artificial & Estratégia"
 ---
 
@@ -19,6 +19,12 @@ Em vez de enviar um comando preguiçoso como *"escreva um e-mail sobre o novo pr
 - **What (O quê):** O que exatamente meu time precisa compreender nesta mensagem?
 - **Why (Por quê):** Qual é o propósito e a dor que estamos resolvendo?
 - **Who (Quem):** Quem é meu público-alvo e qual tom gerará a conexão intelectual e afetiva necessária?
+- **Where (Onde):** Onde usaremos isso?
+- **When (Quando):** Quando usaremos?
+- **How (Como):** Como usaremos isso? Quais são os passos que serão seguidos?
+- **How much (Quanto):** Quanto custa? Por quanto tempo será usado?
+
+
 
 A eficácia do output de uma IA é, portanto, apenas o espelho imediato da capacidade reflexiva humana no input.
 
