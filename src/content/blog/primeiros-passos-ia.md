@@ -2,7 +2,7 @@
 title: "Como a Inteligência Artificial está transformando a Liderança Corporativa"
 date: "2026-03-04"
 excerpt: "Descubra como ferramentas práticas de IA Generativa podem aumentar a produtividade e liberar os líderes para focarem no que importa: a conexão humana."
-coverImage: "/ia.png"
+coverImage: "/ia.jpg"
 category: "Liderança e Tecnologia"
 ---
 

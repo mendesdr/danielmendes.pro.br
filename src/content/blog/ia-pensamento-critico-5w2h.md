@@ -2,7 +2,7 @@
 title: "IA, Pensamento Crítico e 5W2H: A Tríade do Profissional do Futuro"
 date: "2026-03-05"
 excerpt: "A Inteligência Artificial não substitui o raciocínio, ela o potencializa. Entenda como combinar o método 5W2H com ferramentas genrativas para praticar o PATE: Pensar, Aprender, Ter Ideias e Estruturar."
-coverImage: "/5w2h.png"
+coverImage: "/5w2h.jpg"
 category: "Inteligência Artificial & Estratégia"
 ---
 
