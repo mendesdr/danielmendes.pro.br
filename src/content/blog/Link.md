@@ -38,3 +38,6 @@ A provocação final que fica para o mercado é de ordem sucessória: em um mund
 Gostou dessa análise sobre o novo design de experiências educacionais? Através das minhas **Mentorias e Palestras**, eu capacito especialistas a transformarem conhecimento técnico em **aprendizagem ativa e transformacional**.
 
 **Qual dessas estratégias de engajamento você vai testar na sua próxima reunião ou aula?**
+
+Referências:
+https://youtu.be/8xLEWX5KaNg?si=v_telCTxtTPpiFWQ - com João Curry
