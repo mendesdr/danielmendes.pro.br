@@ -17,7 +17,7 @@ import { toast } from 'sonner';
 function TikTokIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
     </svg>
   );
 }
@@ -63,7 +63,9 @@ export function Contact() {
     demand: '',
     subject: '',
     message: '',
+    acceptsNewsletter: false,
   });
+  const [acceptsPrivacy, setAcceptsPrivacy] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -111,7 +113,9 @@ export function Contact() {
           demand: '',
           subject: '',
           message: '',
+          acceptsNewsletter: false,
         });
+        setAcceptsPrivacy(false);
       } else {
         throw new Error('Erro ao enviar');
       }
@@ -123,11 +127,11 @@ export function Contact() {
         `Nome: ${formData.name}\nEmail: ${formData.email}\nCelular: ${formData.phone}\nEmpresa: ${formData.company}\nDemanda: ${formData.demand}\n\nMensagem:\n${formData.message}`
       )}`;
       window.open(mailtoLink, '_blank');
-      
+
       toast.success('Abrindo seu email!', {
         description: 'Clique em enviar no seu aplicativo de email.',
       });
-      
+
       setFormData({
         name: '',
         email: '',
@@ -136,7 +140,9 @@ export function Contact() {
         demand: '',
         subject: '',
         message: '',
+        acceptsNewsletter: false,
       });
+      setAcceptsPrivacy(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -180,7 +186,7 @@ export function Contact() {
             Agende seu <span className="text-gradient-blue">Diagnóstico</span>
           </h2>
           <p className="reveal opacity-0 text-lg text-white/60 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
-            Vamos bater um papo para entender o nível de maturidade da sua equipe em IA e Liderança, 
+            Vamos bater um papo para entender o nível de maturidade da sua equipe em IA e Liderança,
             e traçar um plano de ação para os próximos passos.
           </p>
         </div>
@@ -247,7 +253,7 @@ export function Contact() {
               style={{ animationDelay: '0.4s' }}
             >
               <h3 className="text-xl font-semibold text-white mb-6">Agende seu diagnóstico gratuito</h3>
-              
+
               <div className="grid sm:grid-cols-2 gap-6 mb-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-white/80">
@@ -359,6 +365,39 @@ export function Contact() {
                   rows={5}
                   className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-gold focus:ring-gold/20 resize-none"
                 />
+              </div>
+
+              <div className="space-y-4 mb-8 select-none">
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center h-5">
+                    <input
+                      id="privacy"
+                      type="checkbox"
+                      required
+                      checked={acceptsPrivacy}
+                      onChange={(e) => setAcceptsPrivacy(e.target.checked)}
+                      className="w-4 h-4 rounded border-white/20 bg-white/5 text-gold focus:ring-gold/20 focus:ring-offset-dark cursor-pointer mt-1"
+                    />
+                  </div>
+                  <Label htmlFor="privacy" className="text-sm text-white/70 leading-snug cursor-pointer">
+                    Li e concordo com a <a href="#" className="text-gold hover:underline">Política de Privacidade</a> e autorizo o uso dos meus dados para o agendamento. <span className="text-gold">*</span>
+                  </Label>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center h-5">
+                    <input
+                      id="newsletter"
+                      type="checkbox"
+                      checked={formData.acceptsNewsletter}
+                      onChange={(e) => setFormData(prev => ({ ...prev, acceptsNewsletter: e.target.checked }))}
+                      className="w-4 h-4 rounded border-white/20 bg-white/5 text-gold focus:ring-gold/20 focus:ring-offset-dark cursor-pointer mt-1"
+                    />
+                  </div>
+                  <Label htmlFor="newsletter" className="text-sm text-white/70 leading-snug cursor-pointer">
+                    Aceito receber Insights semanais sobre IA e Inteligência Humana (Opcional).
+                  </Label>
+                </div>
               </div>
 
               <Button

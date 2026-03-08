@@ -8,39 +8,50 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, phone, company, demand, subject, message } = req.body;
+    const { name, email, phone, company, demand, subject, message, acceptsNewsletter } = req.body;
 
-    // USAR O E-MAIL DE TESTE DO RESEND ENQUANTO NÃO VALIDA O DOMÍNIO
-    const fromEmail = "daniel@email.danielmendes.pro.br"; 
-    
+    const fromEmail = "daniel@email.danielmendes.pro.br";
+
+    // Resend: Envia para o Lead e envia cópia oculta (BCC) para o Daniel
     const data = await resend.emails.send({
-      from: `Site Contato <${fromEmail}>`,
-      // IMPORTANTE: O "to" deve ser o e-mail que você usou para criar a conta no Resend!
-      // Se sua conta foi criada com mendes.dr@gmail.com, coloque ele aqui:
-      to: ['daniel@danielmendes.pro.br'], 
-      subject: `SITE: ${subject || 'Novo Contato'}`,
+      from: `Daniel Mendes <${fromEmail}>`,
+      to: [email],
+      bcc: ['daniel@danielmendes.pro.br'],
+      subject: `Recebemos sua solicitação: ${subject || 'Diagnóstico de IA e Liderança'}`,
       html: `
-        <h3>Novo contato via site danielmendes.pro.br</h3>
-        <p><strong>Nome:</strong> ${name}</p>
-        <p><strong>Email do Lead:</strong> ${email}</p>
-        <p><strong>Celular:</strong> ${phone || 'Não informado'}</p>
-        <p><strong>Empresa:</strong> ${company || 'Não informada'}</p>
-        <p><strong>Demanda:</strong> ${demand}</p>
-        <p><strong>Assunto:</strong> ${subject}</p>
-        <hr />
-        <p><strong>Mensagem:</strong></p>
-        <p>${message}</p>
+        <div style="font-family: sans-serif; color: #333; line-height: 1.6;">
+          <h3 style="color: #0b1a2a;">Olá ${name}, recebemos sua solicitação com sucesso!</h3>
+          <p>Obrigado pelo seu interesse. Irei analisar sua demanda sobre <strong>${demand}</strong> para a empresa <strong>${company || 'Não informada'}</strong> e entrarei em contato em breve para agendarmos o nosso papo.</p>
+          <br/>
+          <h4 style="color: #0b1a2a; border-bottom: 1px solid #eee; padding-bottom: 5px;">Resumo dos seus dados:</h4>
+          <p><strong>Celular:</strong> ${phone || 'Não informado'}</p>
+          <p><strong>Assunto:</strong> ${subject}</p>
+          <p><strong>Sua Mensagem:</strong><br/><i>${message}</i></p>
+          <br/>
+          <p>Um abraço,</p>
+          <p>
+            <strong>Daniel Mendes</strong><br/>
+            Especialista em IA & Liderança Corporativa<br/>
+            <a href="https://www.danielmendes.pro.br" style="color: #ffd700;">danielmendes.pro.br</a>
+          </p>
+        </div>
       `,
     });
 
-    // INTEGRAÇÃO COM MAKE.COM (WEBHOOK)
-    const webhookUrl = process.env.MAKE_WEBHOOK_URL;
-    if (webhookUrl) {
+    // INTEGRAÇÃO NATIVA SUPABASE (Substitui o Make.com)
+    // Usando as variáveis injetadas automaticamente pela integração Vercel <-> Supabase
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
+
+    if (supabaseUrl && supabaseKey) {
       try {
-        await fetch(webhookUrl, {
+        const response = await fetch(`${supabaseUrl}/rest/v1/leads`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`,
+            'Prefer': 'return=minimal'
           },
           body: JSON.stringify({
             nome: name,
@@ -48,15 +59,18 @@ export default async function handler(req, res) {
             celular: phone || '',
             empresa: company || '',
             demanda: demand || '',
-            assunto: subject,
-            mensagem: message,
-            origem: 'Site Oficial',
-            data: new Date().toISOString()
+            assunto: subject || '',
+            mensagem: message || '',
+            accepts_newsletter: acceptsNewsletter || false,
           }),
         });
-      } catch (webhookError) {
-        console.error('Erro ao enviar para o webhook do Make:', webhookError);
-        // Não quebramos a requisição se o webhook falhar, o email já foi enviado.
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('Erro ao inserir no Supabase:', errorText);
+        }
+      } catch (dbError) {
+        console.error('Erro de conexão com o Supabase:', dbError);
       }
     }
 
