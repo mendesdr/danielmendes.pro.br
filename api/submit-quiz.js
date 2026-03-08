@@ -95,7 +95,7 @@ export default async function handler(req, res) {
                         empresa: company || '',
                         demanda: 'Raio-X PATE (Quiz)',
                         assunto: `Quiz Finalizado: ${score} pts (${level.title})`,
-                        mensagem: JSON.stringify(answers), // Salva as respostas JSON no campo texto
+                        mensagem: `Respostas do Quiz:\n${Object.entries(answers).map(([key, value]) => `Pergunta ${key}: Nota ${value}`).join('\n')}`,
                         accepts_newsletter: acceptsNewsletter || false,
                     }),
                 });
