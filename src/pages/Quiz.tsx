@@ -78,7 +78,7 @@ export function Quiz() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [currentBlock, showForm]);
+    }, [currentBlock, showForm, isSuccess]);
 
     const handleAnswer = (questionId: number, value: number) => {
         setAnswers((prev) => ({ ...prev, [questionId]: value }));
