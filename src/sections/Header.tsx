@@ -64,11 +64,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
           ? 'glass-effect border-b border-white/5 py-3'
           : 'bg-transparent py-5'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -106,12 +105,13 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
           <div className="hidden md:block">
             <a
-              href="https://calendar.app.google/HBSKGgwkTEA2kzZf7"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/diagnostico"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation('/diagnostico');
+              }}
               className="px-5 py-2.5 bg-gold text-dark font-semibold text-sm rounded-xl hover:bg-gold-light hover:shadow-glow transition-all duration-300"
             >
               Agende seu Diagnóstico
@@ -146,9 +146,11 @@ export function Header() {
                 </a>
               ))}
               <a
-                href="https://calendar.app.google/HBSKGgwkTEA2kzZf7"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/diagnostico"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigation('/diagnostico');
+                }}
                 className="mt-2 px-4 py-3 bg-gold text-dark font-semibold text-center rounded-xl hover:bg-gold-light transition-colors"
               >
                 Agende seu Diagnóstico

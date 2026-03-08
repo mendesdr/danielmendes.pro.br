@@ -11,6 +11,7 @@ import { WhatsAppButton } from './components/WhatsAppButton';
 import { Toaster } from '@/components/ui/sonner';
 import { BlogList } from './pages/BlogList';
 import { BlogPost } from './pages/BlogPost';
+import { Quiz } from './pages/Quiz';
 
 // O conteúdo original da página única de destino
 function LandingPage() {
@@ -30,10 +31,11 @@ function App() {
   return (
     <div className="min-h-screen bg-dark text-white overflow-x-hidden flex flex-col">
       <Header />
-      
+
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/diagnostico" element={<Quiz />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
