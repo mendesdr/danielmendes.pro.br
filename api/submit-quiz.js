@@ -67,7 +67,7 @@ export default async function handler(req, res) {
           </div>
           
           <div style="background-color: #f4f4f4; padding: 20px; text-align: center; font-size: 12px; color: #888;">
-            <p>Daniel Mendes - Especialista em IA e Psicologia Positiva</p>
+            <p>Daniel Mendes - Especialista em Inteligência Humana e Artificial</p>
             <p><a href="https://www.danielmendes.pro.br" style="color: #888;">danielmendes.pro.br</a></p>
           </div>
         </div>

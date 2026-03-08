@@ -183,11 +183,10 @@ export function Contact() {
             Contato
           </span>
           <h2 className="reveal opacity-0 text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6" style={{ animationDelay: '0.1s' }}>
-            Agende seu <span className="text-gradient-blue">Diagnóstico</span>
+            Fale comigo sobre sua <span className="text-gradient-blue">necessidade</span>
           </h2>
           <p className="reveal opacity-0 text-lg text-white/60 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
-            Vamos bater um papo para entender o nível de maturidade da sua equipe em IA e Liderança,
-            e traçar um plano de ação para os próximos passos.
+            Conte-me mais sobre o cenário da sua equipe e como posso ajudá-los a avançar.
           </p>
         </div>
 
@@ -252,7 +251,7 @@ export function Contact() {
               className="reveal opacity-0 p-8 rounded-2xl bg-gradient-card border border-white/5"
               style={{ animationDelay: '0.4s' }}
             >
-              <h3 className="text-xl font-semibold text-white mb-6">Agende seu diagnóstico gratuito</h3>
+              <h3 className="text-xl font-semibold text-white mb-6">Envie sua mensagem</h3>
 
               <div className="grid sm:grid-cols-2 gap-6 mb-6">
                 <div className="space-y-2">
@@ -416,7 +415,7 @@ export function Contact() {
                 ) : (
                   <span className="flex items-center gap-2">
                     <Send size={18} />
-                    Agendar Diagnóstico Gratuito
+                    Enviar Mensagem
                   </span>
                 )}
               </Button>

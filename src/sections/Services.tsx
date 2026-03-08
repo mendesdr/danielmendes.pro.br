@@ -29,7 +29,7 @@ const services = [
       'Criação de Treinamentos',
     ],
     color: 'blue',
-    cta: 'Agende seu diagnóstico gratuito',
+    cta: 'Solicite uma Proposta',
     link: '#contact',
   },
   {
@@ -44,7 +44,7 @@ const services = [
       'Clareza de Propósito',
     ],
     color: 'gold',
-    cta: 'Agende seu diagnóstico gratuito',
+    cta: 'Agende uma Conversa',
     link: 'https://calendar.app.google/HBSKGgwkTEA2kzZf7',
   },
 ];
@@ -141,8 +141,8 @@ export function Services() {
                     document.querySelector(service.link)?.scrollIntoView({ behavior: 'smooth' });
                   } : undefined}
                   className={`inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl font-semibold transition-all duration-300 ${service.color === 'gold'
-                      ? 'bg-gold text-dark hover:bg-gold-light hover:shadow-glow'
-                      : 'bg-blue-brand text-white hover:bg-blue-light hover:shadow-glow-blue'
+                    ? 'bg-gold text-dark hover:bg-gold-light hover:shadow-glow'
+                    : 'bg-blue-brand text-white hover:bg-blue-light hover:shadow-glow-blue'
                     }`}
                 >
                   <Calendar size={18} />

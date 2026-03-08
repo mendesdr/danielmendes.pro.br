@@ -47,10 +47,10 @@ export function BlogPost() {
   return (
     <div className="min-h-screen pt-32 pb-24 bg-dark">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Navigation back */}
-        <Link 
-          to="/blog" 
+        <Link
+          to="/blog"
           className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-12"
         >
           <ArrowLeft size={20} />
@@ -74,22 +74,22 @@ export function BlogPost() {
           </h1>
 
           <div className="flex items-center gap-4">
-             <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 flex-shrink-0">
-               <img src="/daniel-hero.jpg" alt="Daniel Mendes" className="w-full h-full object-cover" loading="lazy" width="48" height="48" />
-             </div>
-             <div>
-               <p className="text-white font-semibold">Daniel Mendes</p>
-               <p className="text-white/70 text-sm">Professor ESPM & Especialista em IA</p>
-             </div>
+            <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 flex-shrink-0">
+              <img src="/daniel-hero.jpg" alt="Daniel Mendes" className="w-full h-full object-cover" loading="lazy" width="48" height="48" />
+            </div>
+            <div>
+              <p className="text-white font-semibold">Daniel Mendes</p>
+              <p className="text-white/70 text-sm">Professor ESPM & Especialista em Inteligência Humana e Artificial</p>
+            </div>
           </div>
         </header>
 
         {/* Cover Image */}
         {post.coverImage && (
           <div className="w-full aspect-video rounded-3xl overflow-hidden bg-dark mb-16">
-            <img 
-              src={post.coverImage} 
-              alt={post.title} 
+            <img
+              src={post.coverImage}
+              alt={post.title}
               className="w-full h-full object-cover"
               fetchPriority="high"
               loading="eager"
@@ -122,8 +122,8 @@ export function BlogPost() {
           <p className="text-white/60 mb-8 max-w-xl mx-auto">
             Agende um diagnóstico gratuito e descubra como podemos aplicar a Inteligência Artificial e a Liderança Humanizada no seu negócio.
           </p>
-          <Link 
-            to="/#contact" 
+          <Link
+            to="/#contact"
             className="inline-flex items-center justify-center px-8 py-4 bg-gold text-dark font-bold rounded-xl hover:bg-gold-light transition-all duration-300 hover:-translate-y-1 shadow-glow"
           >
             Agendar Diagnóstico Gratuito

@@ -210,7 +210,7 @@ export function Hero() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">Especialista</p>
-                      <p className="text-white/70 text-xs">IA e Psicologia</p>
+                      <p className="text-white/70 text-xs text-balance">Inteligência Humana<br />e Artificial</p>
                     </div>
                   </div>
                 </div>

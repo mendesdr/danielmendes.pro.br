@@ -31,7 +31,7 @@ export default async function handler(req, res) {
           <p>Um abraço,</p>
           <p>
             <strong>Daniel Mendes</strong><br/>
-            Especialista em IA & Liderança Corporativa<br/>
+            Especialista em Inteligência Humana e Artificial<br/>
             <a href="https://www.danielmendes.pro.br" style="color: #ffd700;">danielmendes.pro.br</a>
           </p>
         </div>
