@@ -120,7 +120,7 @@ export function Hero() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-dark opacity-40"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-dark"></span>
                 </span>
-                Faça seu Diagnóstico de Maturidade Gratuito
+                Fale comigo sobre sua necessidade
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>

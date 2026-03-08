@@ -191,7 +191,7 @@ export function Quiz() {
                     </div>
                     <h2 className="text-3xl font-bold text-white mb-4">Relatório Enviado!</h2>
                     <p className="text-white/70 text-lg mb-8">
-                        Enviamos o resultado do seu <strong>Raio-X PATE e P3A</strong> com a sua classificação de maturidade diretamente para o e-mail <strong>{formData.email}</strong>.
+                        Enviamos o diagnóstico de <strong>Maturidade em IA e Liderança</strong> da sua equipe com a sua classificação diretamente para o e-mail <strong>{formData.email}</strong>.
                     </p>
                     <Button onClick={() => window.location.href = '/'} className="w-full bg-white/10 text-white hover:bg-white/20 h-12">
                         Voltar para o site
@@ -215,7 +215,7 @@ export function Quiz() {
                         Diagnóstico Gratuito
                     </span>
                     <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                        Raio-X PATE: Maturidade na Liderança
+                        Diagnóstico: Maturidade em IA e Gestão
                     </h1>
                     <p className="text-white/60">
                         Descubra o nível de maturidade da sua equipe na adoção de IA e gestão com Inteligência Emocional.

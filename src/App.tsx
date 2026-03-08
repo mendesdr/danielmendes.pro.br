@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './sections/Header';
 import { Hero } from './sections/Hero';
+import { WelcomeVideo } from './sections/WelcomeVideo';
 import { About } from './sections/About';
 import { Clients } from './sections/Clients';
 import { Services } from './sections/Services';
@@ -18,6 +19,7 @@ function LandingPage() {
   return (
     <>
       <Hero />
+      <WelcomeVideo />
       <About />
       <Clients />
       <Services />

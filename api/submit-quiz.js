@@ -41,7 +41,7 @@ export default async function handler(req, res) {
             from: `Daniel Mendes <${fromEmail}>`,
             to: [email],
             bcc: ['daniel@danielmendes.pro.br'], // Daniel recebe cópia
-            subject: `Seu resultado do Raio-X PATE: Nível ${level.title}`,
+            subject: `Seu Diagnóstico de Liderança e IA: Nível ${level.title}`,
             html: `
         <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden;">
           <div style="background-color: #0b1a2a; padding: 30px; text-align: center;">
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
           
           <div style="padding: 30px;">
             <p style="font-size: 16px;">Olá <strong>${name}</strong>,</p>
-            <p style="font-size: 16px;">Analisamos as suas respostas do Raio-X PATE. Com um escore de <strong>${score} de 75 pontos</strong>, o nível da sua equipe é:</p>
+            <p style="font-size: 16px;">Analisamos as respostas sobre a maturidade da sua equipe. Com um escore de <strong>${score} de 75 pontos</strong>, o nível da sua liderança é:</p>
             
             <div style="background-color: #f8f9fa; border-left: 5px solid ${level.color}; padding: 20px; margin: 25px 0; border-radius: 4px;">
               <h2 style="color: ${level.color}; margin-top: 0;">${level.title}</h2>
@@ -93,7 +93,7 @@ export default async function handler(req, res) {
                         email: email,
                         celular: phone || '',
                         empresa: company || '',
-                        demanda: 'Raio-X PATE (Quiz)',
+                        demanda: 'Diagnóstico de Maturidade (Quiz)',
                         assunto: `Quiz Finalizado: ${score} pts (${level.title})`,
                         mensagem: `Respostas do Quiz:\n${Object.entries(answers).map(([key, value]) => `Pergunta ${key}: Nota ${value}`).join('\n')}`,
                         accepts_newsletter: acceptsNewsletter || false,
