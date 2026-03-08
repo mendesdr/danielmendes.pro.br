@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ArrowRight, Calendar, Linkedin, Youtube, Instagram } from 'lucide-react';
+import { ArrowRight, Linkedin, Youtube, Instagram } from 'lucide-react';
 
 // TikTok icon component
 function TikTokIcon({ size = 18 }: { size?: number }) {
@@ -113,13 +113,14 @@ export function Hero() {
             {/* CTA Buttons */}
             <div className="reveal opacity-0 flex flex-wrap gap-4 mb-10" style={{ animationDelay: '0.4s' }}>
               <a
-                href="https://calendar.app.google/HBSKGgwkTEA2kzZf7"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
                 className="group inline-flex items-center gap-2 px-6 py-3.5 bg-gold text-dark font-semibold rounded-xl hover:bg-gold-light hover:shadow-glow transition-all duration-300"
               >
-                <Calendar size={20} />
-                Agende seu diagnóstico de maturidade gratuito
+                <span className="relative flex h-3 w-3 mr-1">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-dark opacity-40"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-dark"></span>
+                </span>
+                Faça seu Diagnóstico de Maturidade Gratuito
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>

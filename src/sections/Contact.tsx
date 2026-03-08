@@ -329,6 +329,7 @@ export function Contact() {
                       <SelectValue placeholder="Selecione o que procura" />
                     </SelectTrigger>
                     <SelectContent className="bg-dark border-white/10 text-white">
+                      <SelectItem value="Diagnóstico Grátis" className="hover:bg-white/10 focus:bg-white/10 cursor-pointer focus:text-gold text-gold font-medium">Diagnóstico Grátis (IA & Liderança)</SelectItem>
                       <SelectItem value="Palestra" className="hover:bg-white/10 focus:bg-white/10 cursor-pointer focus:text-gold">Palestra</SelectItem>
                       <SelectItem value="Mentoria Individual" className="hover:bg-white/10 focus:bg-white/10 cursor-pointer focus:text-gold">Mentoria Individual</SelectItem>
                       <SelectItem value="Treinamento" className="hover:bg-white/10 focus:bg-white/10 cursor-pointer focus:text-gold">Treinamento</SelectItem>
@@ -380,7 +381,9 @@ export function Contact() {
                     />
                   </div>
                   <Label htmlFor="privacy" className="text-sm text-white/70 leading-snug cursor-pointer">
-                    Li e concordo com a <a href="#" className="text-gold hover:underline">Política de Privacidade</a> e autorizo o uso dos meus dados para o agendamento. <span className="text-gold">*</span>
+                    <span>
+                      Li e concordo com a <a href="#" onClick={(e) => { e.preventDefault(); alert("Página de Política de Privacidade em construção."); }} className="text-gold hover:underline">Política de Privacidade</a> e autorizo o uso dos meus dados para o agendamento. <span className="text-gold">*</span>
+                    </span>
                   </Label>
                 </div>
 
@@ -395,7 +398,7 @@ export function Contact() {
                     />
                   </div>
                   <Label htmlFor="newsletter" className="text-sm text-white/70 leading-snug cursor-pointer">
-                    Aceito receber Insights semanais sobre IA e Inteligência Humana (Opcional).
+                    <span>Aceito receber Insights semanais sobre IA e Inteligência Humana.</span>
                   </Label>
                 </div>
               </div>
