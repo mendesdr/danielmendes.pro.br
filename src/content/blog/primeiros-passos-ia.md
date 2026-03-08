@@ -12,7 +12,7 @@ A Inteligência Artificial já deixou de ser uma tendência futurista para se to
 
 O líder que entende de IA não será substituído; ele vai substituir aquele que não entende. Ferramentas como o **ChatGPT**, **Gamma** ou **NotebookLM** funcionam hoje como "estagiários virtuais brilhantes". Elas organizam resumos de reuniões, criam estruturas de onboarding e validam ideias.
 
-> "A grande vantagem da tecnologia não deve ser o acúmulo de tarefas, mas a liberação de tempo para dedicarmos uns aos outros."
+> A grande vantagem da tecnologia não deve ser o acúmulo de tarefas, mas a liberação de tempo para dedicarmos uns aos outros.
 
 ### Por Onde Começar?
 
